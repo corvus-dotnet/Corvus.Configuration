@@ -1,3 +1,3 @@
-# Corvus.Specs
+# Corvus.Configuration
 
-Abstractions which help makes common configuration scenarios more testable.
+Support for common configuration requirements.
