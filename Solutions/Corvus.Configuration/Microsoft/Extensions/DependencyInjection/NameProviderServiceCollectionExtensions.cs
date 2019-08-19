@@ -16,7 +16,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// </summary>
         /// <param name="services">The <see cref="IServiceCollection"/> to which to add the name provider.</param>
         /// <returns>The configured <see cref="IServiceCollection"/>.</returns>
-        public static IServiceCollection AddNameProvider(IServiceCollection services)
+        public static IServiceCollection AddNameProvider(this IServiceCollection services)
         {
             services.AddSingleton<NameProvider>();
             return services;

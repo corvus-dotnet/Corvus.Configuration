@@ -16,7 +16,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// </summary>
         /// <param name="services">The <see cref="IServiceCollection"/> to which to add the name provider.</param>
         /// <returns>The configured <see cref="IServiceCollection"/>.</returns>
-        public static IServiceCollection AddTestNameProvider(IServiceCollection services)
+        public static IServiceCollection AddTestNameProvider(this IServiceCollection services)
         {
             var nameProvider = new TestNameProvider();
             services.AddSingleton<INameProvider>(nameProvider);
