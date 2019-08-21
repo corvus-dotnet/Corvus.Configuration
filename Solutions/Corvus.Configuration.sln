@@ -9,10 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corvus.Configuration.Specs"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DevOps", "DevOps", "{D29CABE7-467E-4CF6-B44B-3C58AB76145A}"
 	ProjectSection(SolutionItems) = preProject
+		..\azure-pipelines.release.yml = ..\azure-pipelines.release.yml
 		..\azure-pipelines.yml = ..\azure-pipelines.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corvus.Configuration.TestEnvironment", "Corvus.Configuration.TestEnvironment\Corvus.Configuration.TestEnvironment.csproj", "{86460B13-6089-4E84-9045-23E3A8E49C36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corvus.Configuration.TestEnvironment", "Corvus.Configuration.TestEnvironment\Corvus.Configuration.TestEnvironment.csproj", "{86460B13-6089-4E84-9045-23E3A8E49C36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
