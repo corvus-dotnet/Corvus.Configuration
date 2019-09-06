@@ -19,6 +19,11 @@ namespace Corvus.Configuration
         /// <inheritdoc/>
         public virtual string ProvideName(string baseName, int maxLength = 128, NameCase casing = NameCase.NoChange)
         {
+            if (baseName is null)
+            {
+                throw new System.ArgumentNullException(nameof(baseName));
+            }
+
             string name = ProvideNameCore(baseName, maxLength, casing);
             this.names.Add(name);
             return name;
@@ -27,6 +32,11 @@ namespace Corvus.Configuration
         /// <inheritdoc/>
         public virtual string ProvideRepeatableName(string baseName, int maxLength = 128, NameCase casing = NameCase.NoChange)
         {
+            if (baseName is null)
+            {
+                throw new System.ArgumentNullException(nameof(baseName));
+            }
+
             return this.nameMap.GetOrAdd(baseName, b => ProvideNameCore(b, maxLength, casing));
         }
 

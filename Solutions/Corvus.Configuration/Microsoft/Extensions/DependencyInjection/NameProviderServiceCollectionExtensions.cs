@@ -4,6 +4,7 @@
 
 namespace Microsoft.Extensions.DependencyInjection
 {
+    using System.Linq;
     using Corvus.Configuration;
 
     /// <summary>
@@ -18,7 +19,13 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns>The configured <see cref="IServiceCollection"/>.</returns>
         public static IServiceCollection AddNameProvider(this IServiceCollection services)
         {
-            services.AddSingleton<NameProvider>();
+            if (services.Any(s => typeof(INameProvider).IsAssignableFrom(s.ServiceType)))
+            {
+                // Already configured
+                return services;
+            }
+
+            services.AddSingleton<INameProvider, NameProvider>();
             return services;
         }
     }

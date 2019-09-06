@@ -17,6 +17,11 @@ namespace Corvus.Configuration
         /// <param name="testNameProvider">The <see cref="ITestNameProvider"/> on which to begin the new session.</param>
         public static void BeginTestSesion(this ITestNameProvider testNameProvider)
         {
+            if (testNameProvider is null)
+            {
+                throw new ArgumentNullException(nameof(testNameProvider));
+            }
+
             testNameProvider.BeginTestSession(Guid.NewGuid());
         }
     }

@@ -18,9 +18,8 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns>The configured <see cref="IServiceCollection"/>.</returns>
         public static IServiceCollection AddTestNameProvider(this IServiceCollection services)
         {
-            var nameProvider = new TestNameProvider();
-            services.AddSingleton<INameProvider>(nameProvider);
-            services.AddSingleton<ITestNameProvider>(nameProvider);
+            services.AddSingleton<ITestNameProvider, TestNameProvider>();
+            services.AddSingleton<INameProvider>(s => s.GetRequiredService<ITestNameProvider>());
             return services;
         }
     }

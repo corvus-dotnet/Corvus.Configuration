@@ -17,12 +17,22 @@ namespace Corvus.Configuration
         /// <inheritdoc/>
         public override string ProvideName(string baseName, int maxLength = 128, NameCase casing = NameCase.NoChange)
         {
+            if (baseName is null)
+            {
+                throw new ArgumentNullException(nameof(baseName));
+            }
+
             return base.ProvideName(this.ExtendBaseForTest(baseName), maxLength, casing);
         }
 
         /// <inheritdoc/>
         public override string ProvideRepeatableName(string baseName, int maxLength = 128, NameCase casing = NameCase.NoChange)
         {
+            if (baseName is null)
+            {
+                throw new ArgumentNullException(nameof(baseName));
+            }
+
             return base.ProvideRepeatableName(this.ExtendBaseForTest(baseName), maxLength, casing);
         }
 
