@@ -59,7 +59,7 @@ You can register the default `INameProvider` in the `Microsoft.Extensions.Depend
 
 You can register a standard implementation of the test `INameProvider` in the `Microsoft.Extensions.DependencyInjection` DI container using the `serviceCollection.AddTestNameProvider()` extension method. Once you have done this, you can access it as both the `INameProvider` service, and the `ITestNameProvider` service.
 
-## Custom implementations
+### Custom implementations
 
 You can easily create custom name provider implementations that add specific constraints for different use cases. It allows you to separate common naming concerns from the services that use them.
 
