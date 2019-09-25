@@ -8,6 +8,60 @@ This provides a library of useful configuration extensions.
 It is built for netstandard2.0.
 
 ## Features
+### `INameProvider`
+
+The name provider allows you to generate a name for a given base, having applied some constraints. This is typically used to take a string from one service, and convert it into a form that is useful for a third party service that applies particular constraints (e.g.
+Azure blob container names)
+
+The `ProvideName()` method will generate a name based on a stem, optionally specificing a maximum length and forcing to upper or lower case. Each time you call it, you will get a unique name.
+
+e.g.
+
+```
+INameProvider provider;
+string someName = provider.ProvideName("myBase", 64, NameCase.LowerInvariant); 
+string someOtherName = provider.ProvideName("myBase", 64, NameCase.LowerInvariant);
+```
+
+There is also the `ProvideRepeatableName()` method, which will generate a name based on a stem with the same optional constraints, but will guarantee to provide the same name for the same stem.
+
+e.g.
+
+```
+INameProvider provider;
+string someName = provider.ProvideRepeatableName("myBase", 64, NameCase.LowerInvariant); 
+string someSameName = provider.ProvideRepeatableName("myBase", 64, NameCase.LowerInvariant);
+
+Debug.Assert(someName == someSameName);
+```
+
+### `ITestNameProvider`
+
+In addition to the standard `INameProvider` implementation, there is an `ITestNameProvider` interface.
+
+You can begin a test by calling `BeginTestSession(Guid.NewGuid())`.
+
+This sets the `TestId` for the name provider to the test session ID you passed in.
+
+Once you have done this, it is expected that implementations will append the test session GUID to any names that you create (before constraints are applied).
+
+`CompleteTestSession()` will clear the current `TestId` and `Reset()` the name provider cache.
+
+This helps you create unique names for entities in your tests that are scoped to that test (and therefore easily identifiable), but will not clash with any concurrent test executions in shared test infrastructure.
+
+### Microsoft.Extensions.DependencyInjection
+
+#### `NameProvider`
+
+You can register the default `INameProvider` in the `Microsoft.Extensions.DependencyInjection` DI container using the `serviceCollection.AddNameProvider()` extension method.
+
+#### `TestNameProvider`
+
+You can register a standard implementation of the test `INameProvider` in the `Microsoft.Extensions.DependencyInjection` DI container using the `serviceCollection.AddTestNameProvider()` extension method. Once you have done this, you can access it as both the `INameProvider` service, and the `ITestNameProvider` service.
+
+## Custom implementations
+
+You can easily create custom name provider implementations that add specific constraints for different use cases. It allows you to separate common naming concerns from the services that use them.
 
 ## Licenses
 
