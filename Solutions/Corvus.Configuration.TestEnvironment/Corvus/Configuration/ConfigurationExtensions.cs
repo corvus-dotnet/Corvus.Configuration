@@ -14,7 +14,7 @@ namespace Corvus.Configuration
     /// </summary>
     /// <remarks>
     /// By convention, we provide test configuration through EnvironmentVariables (on the build server),
-    /// through a local.settings.json file (for local dev), with optional in-memory fallbacks provided for
+    /// through a local json file (for local dev), with optional in-memory fallbacks provided for
     /// individual test configuration.
     /// </remarks>
     public static class ConfigurationExtensions
@@ -23,9 +23,29 @@ namespace Corvus.Configuration
         /// Adds standard configuration tools for the test environment.
         /// </summary>
         /// <param name="builder">The configuration builder to configure.</param>
+        /// <param name="filePath">The file path of the local json configuration file to use, relative to the current executing assembly.</param>
         /// <param name="fallbackSettings">Any fallback settings to apply if not overridden elsewhere.</param>
-        public static void AddTestConfiguration(this IConfigurationBuilder builder, IDictionary<string, string> fallbackSettings = null)
+        /// <remarks>
+        /// Local json files should contain configuration in either of the following json structures:
+        /// 1. Nested properties
+        /// {
+        ///   "Test": {
+        ///    "Property":  "Value"
+        ///   }
+        /// }
+        /// 2. Flattened, colon separated properties
+        /// {
+        ///  "Test:Property": "Value"
+        /// }
+        /// .
+        /// </remarks>
+        public static void AddTestConfiguration(this IConfigurationBuilder builder, string filePath, IDictionary<string, string> fallbackSettings = null)
         {
+            if (string.IsNullOrEmpty(filePath))
+            {
+                throw new ArgumentNullException(nameof(filePath));
+            }
+
             if (fallbackSettings != null)
             {
                 builder.AddInMemoryCollection(fallbackSettings);
@@ -34,7 +54,7 @@ namespace Corvus.Configuration
             // Add a JSON file if present for local dev
             var codebase = new Uri(typeof(ConfigurationExtensions).Assembly.CodeBase);
             builder.SetBasePath(Path.GetDirectoryName(codebase.LocalPath));
-            builder.AddJsonFile("local.settings.json", optional: true, reloadOnChange: true);
+            builder.AddJsonFile(filePath, optional: true, reloadOnChange: true);
 
             // On the build server, we expect configuration comes through environment variables.
             builder.AddEnvironmentVariables();
