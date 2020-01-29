@@ -65,15 +65,12 @@ namespace Corvus.Configuration
 
         private static string ApplyCasing(string name, NameCase casing)
         {
-            switch (casing)
+            return casing switch
             {
-                case NameCase.LowerInvariant:
-                    return name.ToLowerInvariant();
-                case NameCase.UpperInvariant:
-                    return name.ToUpperInvariant();
-                default:
-                    return name;
-            }
+                NameCase.LowerInvariant => name.ToLowerInvariant(),
+                NameCase.UpperInvariant => name.ToUpperInvariant(),
+                _ => name,
+            };
         }
     }
 }
