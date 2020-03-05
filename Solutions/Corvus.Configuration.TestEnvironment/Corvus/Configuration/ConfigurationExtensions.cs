@@ -39,7 +39,7 @@ namespace Corvus.Configuration
         /// }
         /// .
         /// </remarks>
-        [Obsolete("Use AddConfigurationForTest() instead.")]
+        [Obsolete("Use AddConfigurationForTest() instead. See https://github.com/corvus-dotnet/Corvus.Configuration/pull/71 for more information.")]
         public static void AddTestConfiguration(this IConfigurationBuilder builder, string filePath, IDictionary<string, string> fallbackSettings = null)
         {
             if (string.IsNullOrEmpty(filePath))
