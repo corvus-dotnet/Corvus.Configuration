@@ -33,7 +33,7 @@ namespace Corvus.Configuration.Specs.Steps
 
             string fileName = this.context.Get<string>("filename");
 
-            configBuilder.AddTestConfiguration(fileName);
+            configBuilder.AddConfigurationForTest(fileName);
 
             IConfigurationRoot config = configBuilder.Build();
 
