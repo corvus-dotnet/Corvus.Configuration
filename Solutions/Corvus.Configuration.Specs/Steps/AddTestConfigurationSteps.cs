@@ -1,9 +1,13 @@
-﻿using Microsoft.Extensions.Configuration;
-using TechTalk.SpecFlow;
-using NUnit.Framework;
+﻿// <copyright file="AddTestConfigurationSteps.cs" company="Endjin Limited">
+// Copyright (c) Endjin Limited. All rights reserved.
+// </copyright>
 
 namespace Corvus.Configuration.Specs.Steps
 {
+    using Microsoft.Extensions.Configuration;
+    using NUnit.Framework;
+    using TechTalk.SpecFlow;
+
     [Binding]
     public class AddTestConfigurationSteps
     {
