@@ -13,7 +13,6 @@ resources:
       type: github
       name: endjin/Endjin.RecommendedPractices.AzureDevopsPipelines.GitHub
       endpoint: corvus-dotnet-github
-      ref:  feature/22-revert-to-older-31-sdk 
 
 jobs:
 - template: templates/build.and.release.yml@recommended_practices
