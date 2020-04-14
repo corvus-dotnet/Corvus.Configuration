@@ -19,8 +19,9 @@ namespace Corvus.Configuration.Specs.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("AddTestConfiguration")]
+    [NUnit.Framework.TestFixtureAttribute(TestName="AddTestConfiguration")]
+    [NUnit.Framework.DescriptionAttribute("\tIn order to use local configuration values when running tests\r\n\tAs a developer\r\n" +
+        "\tI want the test runner to be able to read a local.settings.json file")]
     public partial class AddTestConfigurationFeature
     {
         
@@ -74,7 +75,7 @@ namespace Corvus.Configuration.Specs.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.TestCaseAttribute(TestName="Read nested configuration values")]
         [NUnit.Framework.DescriptionAttribute("Read nested configuration values")]
         public virtual void ReadNestedConfigurationValues()
         {
@@ -113,7 +114,7 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.TestCaseAttribute(TestName="Read flattened configuration values")]
         [NUnit.Framework.DescriptionAttribute("Read flattened configuration values")]
         public virtual void ReadFlattenedConfigurationValues()
         {
