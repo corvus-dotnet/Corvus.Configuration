@@ -1,6 +1,6 @@
 # Corvus.Configuration
-[![Build Status](https://dev.azure.com/endjin-labs/Corvus.Configuration/_apis/build/status/corvus-dotnet.Corvus.Configuration?branchName=master)](https://dev.azure.com/endjin-labs/Corvus.Configuration/_build/latest?definitionId=4&branchName=master)
-[![GitHub license](https://img.shields.io/badge/License-Apache%202-blue.svg)](https://raw.githubusercontent.com/corvus-dotnet/Corvus.Configuration/master/LICENSE)
+[![Build Status](https://dev.azure.com/endjin-labs/Corvus.Configuration/_apis/build/status/corvus-dotnet.Corvus.Configuration?branchName=main)](https://dev.azure.com/endjin-labs/Corvus.Configuration/_build/latest?definitionId=4&branchName=main)
+[![GitHub license](https://img.shields.io/badge/License-Apache%202-blue.svg)](https://raw.githubusercontent.com/corvus-dotnet/Corvus.Configuration/main/LICENSE)
 [![IMM](https://endimmfuncdev.azurewebsites.net/api/imm/github/corvus-dotnet/Corvus.Configuration/total?cache=false)](https://endimmfuncdev.azurewebsites.net/api/imm/github/corvus-dotnet/Corvus.Configuration/total?cache=false)
 
 This provides utilities for enabling an application to adapt to the constraints in which it will run.
@@ -65,7 +65,7 @@ You can easily create custom name provider implementations that add specific con
 
 ## Licenses
 
-[![GitHub license](https://img.shields.io/badge/License-Apache%202-blue.svg)](https://raw.githubusercontent.com/corvus-dotnet/Corvus.Configuration/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/License-Apache%202-blue.svg)](https://raw.githubusercontent.com/corvus-dotnet/Corvus.Configuration/main/LICENSE)
 
 Corvus.Configuration is available under the Apache 2.0 open source license.
 
