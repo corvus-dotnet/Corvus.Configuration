@@ -15,12 +15,12 @@ namespace Corvus.Configuration
         NoChange,
 
         /// <summary>
-        /// Convert to lower (invariant culture)
+        /// Convert to lower (invariant culture).
         /// </summary>
         LowerInvariant,
 
         /// <summary>
-        /// Convert to upper (invariant culture)
+        /// Convert to upper (invariant culture).
         /// </summary>
         UpperInvariant,
     }
