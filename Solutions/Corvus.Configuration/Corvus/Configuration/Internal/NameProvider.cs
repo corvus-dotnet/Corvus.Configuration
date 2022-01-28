@@ -13,8 +13,8 @@ namespace Corvus.Configuration
     /// </summary>
     public class NameProvider : INameProvider
     {
-        private readonly ConcurrentDictionary<string, string> nameMap = new ConcurrentDictionary<string, string>();
-        private ConcurrentBag<string> names = new ConcurrentBag<string>();
+        private readonly ConcurrentDictionary<string, string> nameMap = new();
+        private ConcurrentBag<string> names = new();
 
         /// <inheritdoc/>
         public virtual string ProvideName(string baseName, int maxLength = 128, NameCase casing = NameCase.NoChange)
