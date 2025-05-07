@@ -2,26 +2,25 @@
 // Copyright (c) Endjin Limited. All rights reserved.
 // </copyright>
 
-namespace Corvus.Configuration
+namespace Corvus.Configuration;
+
+/// <summary>
+/// The various casing options for a name.
+/// </summary>
+public enum NameCase
 {
     /// <summary>
-    /// The various casing options for a name.
+    /// No change from provided name.
     /// </summary>
-    public enum NameCase
-    {
-        /// <summary>
-        /// No change from provided name.
-        /// </summary>
-        NoChange,
+    NoChange,
 
-        /// <summary>
-        /// Convert to lower (invariant culture).
-        /// </summary>
-        LowerInvariant,
+    /// <summary>
+    /// Convert to lower (invariant culture).
+    /// </summary>
+    LowerInvariant,
 
-        /// <summary>
-        /// Convert to upper (invariant culture).
-        /// </summary>
-        UpperInvariant,
-    }
+    /// <summary>
+    /// Convert to upper (invariant culture).
+    /// </summary>
+    UpperInvariant,
 }
